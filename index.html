@@ -1,25 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I am With U Forever</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I am With U Forever</title>
+
+<style>
+body{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#ffffff;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    text-align:center;
+}
+
+.icon{
+    font-size:80px;
+    color:#D4AF37;
+}
+
+button{
+    margin-top:25px;
+    width:120px;
+    height:120px;
+    border:none;
+    border-radius:50%;
+    background:#D4AF37;
+    color:white;
+    font-size:40px;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+h2{
+    color:#D4AF37;
+    margin-top:30px;
+}
+
+audio{
+    display:none;
+}
+</style>
 </head>
+
 <body>
 
 <div class="container">
 
-    <div class="music-icon">🎵</div>
+<div class="icon">🎵</div>
 
-    <audio id="player" controls>
-        <source src="music.mp3" type="audio/mpeg">
-        Your browser does not support audio.
-    </audio>
+<button onclick="playSong()">▶</button>
 
-    <h2>I am With U Forever ❤️</h2>
+<audio id="song">
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<h2>I am With U Forever ❤️</h2>
 
 </div>
+
+<script>
+function playSong(){
+    document.getElementById("song").play();
+}
+</script>
 
 </body>
 </html>
