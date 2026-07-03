@@ -1,0 +1,28 @@
+body{
+    margin:0;
+    background:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    text-align:center;
+}
+
+.music-icon{
+    font-size:70px;
+    color:#D4AF37;
+    margin-bottom:20px;
+}
+
+audio{
+    width:320px;
+}
+
+h2{
+    color:#D4AF37;
+    margin-top:25px;
+}
