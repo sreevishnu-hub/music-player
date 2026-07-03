@@ -22,7 +22,6 @@ body{
 
 .icon{
     font-size:80px;
-    color:#D4AF37;
 }
 
 button{
@@ -33,9 +32,10 @@ button{
     border-radius:50%;
     background:#D4AF37;
     color:white;
-    font-size:40px;
+    font-size:42px;
     cursor:pointer;
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    transition:.3s;
 }
 
 button:hover{
@@ -59,10 +59,11 @@ audio{
 
 <div class="icon">🎵</div>
 
-<button onclick="playSong()">▶</button>
+<button id="playBtn">▶</button>
 
-<audio id="song">
+<audio id="song" preload="auto">
     <source src="music.mp3/music.mpeg" type="audio/mpeg">
+    Your browser does not support audio.
 </audio>
 
 <h2>I am With U Forever ❤️</h2>
@@ -70,9 +71,40 @@ audio{
 </div>
 
 <script>
-function playSong(){
-    document.getElementById("song").play();
-}
+
+const audio=document.getElementById("song");
+const btn=document.getElementById("playBtn");
+
+audio.addEventListener("error",function(){
+    alert("Audio file not found.\nPlease check the file path.");
+});
+
+btn.addEventListener("click",function(){
+
+    if(audio.paused){
+
+        audio.play()
+        .then(()=>{
+            btn.innerHTML="❚❚";
+        })
+        .catch(err=>{
+            console.log(err);
+            alert("Unable to play audio.");
+        });
+
+    }else{
+
+        audio.pause();
+        btn.innerHTML="▶";
+
+    }
+
+});
+
+audio.addEventListener("ended",function(){
+    btn.innerHTML="▶";
+});
+
 </script>
 
 </body>
